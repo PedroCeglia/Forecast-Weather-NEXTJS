@@ -1,17 +1,17 @@
-'use client'
-import { HeaderContainerStyle } from "./style"
+import { HeaderContainerStyle, InitialPagePadding } from "./style"
 import GoogleAutocomplete from "./GoogleAutocomplete"
+import Link from "next/link"
 
 export default function Header() {
 
-    function setSearchPlace( place ) {
-        console.log( place )
-    }
-
     return (
-        <HeaderContainerStyle>
-            <h1>Forecast Weather</h1>
-            <GoogleAutocomplete setSearchPlace={ setSearchPlace }/>
-        </HeaderContainerStyle>
+        <>
+            <HeaderContainerStyle>
+                <Link href="/">Forecast Weather</Link>
+                <GoogleAutocomplete />
+            </HeaderContainerStyle>      
+            <InitialPagePadding />  
+        </>
+
     )
 }
