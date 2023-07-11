@@ -23,8 +23,4 @@ export default createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
     }
-    div.projeto-top-page{
-        position: absolute;
-        top: 0;
-    }
 `
