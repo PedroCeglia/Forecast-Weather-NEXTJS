@@ -1,3 +1,3 @@
-import IntroForecastSection from "./Intro";
+import IntroForecastSection from "./CurrentForecast";
 
 export { IntroForecastSection }
