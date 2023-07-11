@@ -1,14 +1,16 @@
 import EstruturaPagina from "@/src/components/estruturas/EstruturaPagina"
-import StyledComponentsRegistry from "@/src/style/styleComponentRegistry"
+import StyleSettigns from "@/src/style/StyleSettigns"
 
 export default function RootLayout( { children } ) {
     return(
         <html lang="pt-br">
-            <EstruturaPagina>
-                <StyledComponentsRegistry> 
-                    { children }
-                </StyledComponentsRegistry>
-            </EstruturaPagina> 
+            <body>
+                <StyleSettigns>
+                    <EstruturaPagina>
+                        { children }
+                    </EstruturaPagina>                      
+                </StyleSettigns>
+            </body>
         </html>
     )   
 }
