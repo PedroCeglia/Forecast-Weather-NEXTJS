@@ -1,16 +1,17 @@
 'use client' 
 
+import { SwitchThemeButton } from "./style"
 import { useThemeProvider } from "@/src/style/ThemeProvider"
 
 export default function ChangeTheme() {
 
-    const { toggleThemeToDarkOrLight } = useThemeProvider()
+    const { theme, toggleThemeToDarkOrLight } = useThemeProvider()
 
     return (
-        <button
+        <SwitchThemeButton
             onClick={ toggleThemeToDarkOrLight }
+            theme={ theme }
         >
-            Mudar Thema
-        </button>
+        </SwitchThemeButton>
     )
 }
