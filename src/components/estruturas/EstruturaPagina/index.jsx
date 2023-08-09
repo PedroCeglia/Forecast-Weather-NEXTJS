@@ -12,7 +12,6 @@ export default function EstruturaPagina( { children } ) {
                 <ConteudoPaginaContainer>
                     { children }
                 </ConteudoPaginaContainer>
-                <Footer/>                   
             </ContextProviders>
         </EstruturaPaginaStyle>
     )
