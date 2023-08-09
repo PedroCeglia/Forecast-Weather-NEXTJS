@@ -2,7 +2,7 @@
 
 import styled from "styled-components"
 
-export const GoogleAutocompleteStyledComponent = styled.div`
+export const GoogleAutocompleteStyledComponent = styled.form`
     
     display: flex;
     flex-direction: column;
