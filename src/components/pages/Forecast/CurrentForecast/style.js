@@ -10,31 +10,43 @@ export const ArticleCurrentForecast = styled.article`
 
     background-color: ${ ( { theme } ) => theme.articleForecastColor};
 
-    width: 60vw;
+    width: 55vw;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+
+    @media all and ( max-width : 800px ) {
+        width: 90vw;
+        margin-left: 0;
+    }
 `
 
 export const IntroCurrentForecast = styled.div`
+    width: 100%;
+    padding: 10px 20px;
+
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
     img {
-        width: 50px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
     }
 `
 
 export const PlaceDataForecast = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     
     h2 {
-        font-size: large;
+        font-size: 2em;
     }
 
     span {
-        font-size: medium;
+        font-size: 1.2em;
     }
 
 `
