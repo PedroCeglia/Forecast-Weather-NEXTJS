@@ -1,5 +1,6 @@
 import { IntroCurrentForecast, PlaceDataForecast } from "./style"
 import CurrentForecastContainer from "./container"
+import TableCurrentForecast from "./TableCurrentForecast"
 
 export default function CurrentForecast( {
     placeName = "Rio de Janeiro", 
@@ -11,7 +12,7 @@ export default function CurrentForecast( {
     chancesDeChuva = "38%"
 } ) {
 
-    const tabelaList = [
+    const tableList = [
         { title: "Temperatura", content: temperatura },
         { title: "Sensação Termica", content: sensacaoTermica },
         { title: "Velocidade do Vento", content: velocidadeDoVento },
@@ -27,19 +28,7 @@ export default function CurrentForecast( {
                 </PlaceDataForecast>
                 <img src={ forecastIcon } alt={ "Forecast Icon" }/>
             </IntroCurrentForecast>
-            <div>
-                {
-                    tabelaList.map( ( item, key ) => {
-                        return (
-                            <div key={ key }>
-                                <h3> { item.title } </h3>
-                                <span> { item.content } </span>
-                            </div>
-                        )
-                    })
-                }
-
-            </div>
+            <TableCurrentForecast tableList={ tableList } />
         </CurrentForecastContainer>
     )
 }
