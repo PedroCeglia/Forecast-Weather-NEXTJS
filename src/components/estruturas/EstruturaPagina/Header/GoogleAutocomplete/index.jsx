@@ -2,46 +2,35 @@
 
 import { GoogleAutocompleteStyledComponent } from "./style"
 import { usePlacesWidget } from "react-google-autocomplete";
-import { useRouter } from "next/navigation";
 import { useGlobalContext } from "@/src/components/ContextProviders";
+import { useThemeProvider } from "@/src/style/ThemeProvider";
 
 export default function GoogleAutocomplete() {
     
-    const apiKeyGoogleAutocomplete = process.env.NEXT_PUBLIC_GOOGLE_AUTOCOMPLETE_API_KEY
+    const { onChangeForecastPlace } = useGlobalContext()
+    const { theme } = useThemeProvider()
 
-    const { forecast, setForecast } = useGlobalContext()
-    
+    const { ref } = usePlacesWidget( {
+        apiKey: process.env.NEXT_PUBLIC_GOOGLE_AUTOCOMPLETE_API_KEY,
+        onPlaceSelected: ( place ) => getPlaceLatLngAndAdress( place )
+    } )    
 
     function getPlaceLatLngAndAdress ( place ) {
         if( place != null ) {
             const placeLatLngAndAdress = {
                 placeName: place.formatted_address,
                 lat: place.geometry.location.lat(),
-                lng: place.geometry.location.lng()
+                lon: place.geometry.location.lng()
             } 
-            setForecast( placeLatLngAndAdress )
-            changeToForecastRoute( placeLatLngAndAdress )
+            onChangeForecastPlace( placeLatLngAndAdress )
         } 
     }
 
-    const router = useRouter()
-    function changeToForecastRoute( placeLatLngAndAdress ) {
-        if( placeLatLngAndAdress != null) {
-            const pathName = `/${ placeLatLngAndAdress.lat }/${ placeLatLngAndAdress.lng }`
-            router.push(pathName, placeLatLngAndAdress )            
-        }
-    }
-
-    const { ref } = usePlacesWidget( {
-        apiKey: apiKeyGoogleAutocomplete,
-        onPlaceSelected: ( place ) => getPlaceLatLngAndAdress( place )
-    } )
-
 
     return (
-        <GoogleAutocompleteStyledComponent>
-            <span>Escolha uma cidade !</span>
-            <input ref={ ref } type="text" />
+        <GoogleAutocompleteStyledComponent theme={ theme } >
+            <label>Escolha uma cidade !</label>
+            <input ref={ ref } placeholder="digite algo" type="text"/>
         </GoogleAutocompleteStyledComponent>
     )
 }

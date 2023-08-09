@@ -1,9 +1,9 @@
-import { IntroMainSection } from "@/src/components/pages/Main"
+import { IntroForecastSection } from "@/src/components/pages/Forecast"
 
 export default function Home() {
     return (
         <>
-            <IntroMainSection/>
+            <IntroForecastSection/>
         </>
     )
 }

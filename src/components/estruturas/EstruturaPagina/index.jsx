@@ -1,6 +1,7 @@
-import { EstruturaPaginaStyle, ConteudoPaginaContainerStyle } from "./style"
+import { EstruturaPaginaStyle } from "./style"
 import Header from "./Header"
 import Footer from "./Footer"
+import ConteudoPaginaContainer from "./ConteudoPagina"
 import ContextProviders from "../../ContextProviders"
 
 export default function EstruturaPagina( { children } ) {
@@ -8,10 +9,9 @@ export default function EstruturaPagina( { children } ) {
         <EstruturaPaginaStyle>
             <ContextProviders>
                 <Header/>
-                <ConteudoPaginaContainerStyle>
+                <ConteudoPaginaContainer>
                     { children }
-                </ConteudoPaginaContainerStyle>
-                <Footer/>                
+                </ConteudoPaginaContainer>
             </ContextProviders>
         </EstruturaPaginaStyle>
     )

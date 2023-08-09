@@ -2,7 +2,7 @@
 
 import styled from "styled-components"
 
-export const GoogleAutocompleteStyledComponent = styled.div`
+export const GoogleAutocompleteStyledComponent = styled.form`
     
     display: flex;
     flex-direction: column;
@@ -13,22 +13,23 @@ export const GoogleAutocompleteStyledComponent = styled.div`
     width: 100%;
     min-width: 250px;
 
+    color: ${ ( { theme } ) => theme.textColor };
 
     input{
-        width: 100%;
-        padding: 10px 30px;
-        border-radius: 10px;
-
-        border: none;
-        outline: none;
-        background-color: transparent;
-
         background-color: #efefef8c;
         border: 1px solid #efefef;
+        border-radius: 10px;        
+
+        width: 100%;
+        padding: 10px 30px;
+
+        outline: none;
+        color: black;
     }
-    span {
+
+    label {
         margin-left: 5px;
         margin-bottom: 5px;
-        font-size: 1em;
+        font-size: 1.1em;
     }
 `
